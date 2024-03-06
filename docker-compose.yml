@@ -1,0 +1,96 @@
+version: "3.3"
+services:
+  email-service:
+    build:
+      context: ./Dotnet.Saga.Email.Service
+      dockerfile: Dockerfile
+    container_name: email_service
+    restart: always
+    environment:
+      ConnectionStrings__RabbitMQ: amqp://admin:admin123@rabbitmq:5672
+    networks:
+      - app_network
+    depends_on:
+      - rabbitmq
+
+  payment-service:
+    build:
+      context: ./Dotnet.Saga.Payment.Service
+      dockerfile: Dockerfile
+    container_name: payment_service
+    restart: always
+    environment:
+      ConnectionStrings__RabbitMQ: amqp://admin:admin123@rabbitmq:5672
+      ConnectionStrings__DefaultConnection: Server=orderdb;DataBase=PaymentDB;Uid=root;Pwd=db_user_pwd_965
+    networks:
+      - app_network
+    depends_on:
+      - rabbitmq
+      - orderdb
+
+  order-api:
+    build:
+      context: ./Dotnet.Saga.Order.API
+      dockerfile: Dockerfile
+    container_name: order_api
+    restart: always
+    ports:
+      - "5000:80"
+    environment:
+      ConnectionStrings__RabbitMQ: amqp://admin:admin123@rabbitmq:5672
+      ConnectionStrings__DefaultConnection: Server=orderdb;DataBase=OrderDB;Uid=root;Pwd=db_user_pwd_965
+    networks:
+      - app_network
+    depends_on:
+      - rabbitmq
+      - orderdb
+
+  stock-api:
+    build:
+      context: ./Dotnet.Saga.Stock.API
+      dockerfile: Dockerfile
+    container_name: stock_api
+    restart: always
+    ports:
+      - "5001:80"
+    environment:
+      ConnectionStrings__RabbitMQ: amqp://admin:admin123@rabbitmq:5672
+      ConnectionStrings__DefaultConnection: Server=orderdb;DataBase=StockDB;Uid=root;Pwd=db_user_pwd_965
+    networks:
+      - app_network
+    depends_on:
+      - rabbitmq
+      - orderdb
+
+  orderdb:
+    image: mysql:5.7
+    restart: always
+    container_name: orderdb
+    environment:
+      MYSQL_ROOT_PASSWORD: "db_user_pwd_965"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - app_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin123"
+    networks:
+      - app_network
+
+volumes:
+  my-db:
+
+networks:
+  app_network:

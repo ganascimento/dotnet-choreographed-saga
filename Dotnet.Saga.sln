@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Saga.Order.API", "Dotnet.Saga.Order.API\Dotnet.Saga.Order.API.csproj", "{791ACF1C-DE62-4DE4-AA88-A1D4470E61A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Saga.Stock.API", "Dotnet.Saga.Stock.API\Dotnet.Saga.Stock.API.csproj", "{6DAFF53A-5BE8-4D61-94FC-1A509C8A6B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Saga.Payment.Service", "Dotnet.Saga.Payment.Service\Dotnet.Saga.Payment.Service.csproj", "{CEF2E5E3-AFCD-454E-ABE8-96A900BB5C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Saga.Email.Service", "Dotnet.Saga.Email.Service\Dotnet.Saga.Email.Service.csproj", "{E4F45B3F-5C23-4238-BBA5-7B7E15866196}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{791ACF1C-DE62-4DE4-AA88-A1D4470E61A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791ACF1C-DE62-4DE4-AA88-A1D4470E61A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791ACF1C-DE62-4DE4-AA88-A1D4470E61A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791ACF1C-DE62-4DE4-AA88-A1D4470E61A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAFF53A-5BE8-4D61-94FC-1A509C8A6B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAFF53A-5BE8-4D61-94FC-1A509C8A6B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAFF53A-5BE8-4D61-94FC-1A509C8A6B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAFF53A-5BE8-4D61-94FC-1A509C8A6B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF2E5E3-AFCD-454E-ABE8-96A900BB5C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF2E5E3-AFCD-454E-ABE8-96A900BB5C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF2E5E3-AFCD-454E-ABE8-96A900BB5C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF2E5E3-AFCD-454E-ABE8-96A900BB5C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4F45B3F-5C23-4238-BBA5-7B7E15866196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F45B3F-5C23-4238-BBA5-7B7E15866196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F45B3F-5C23-4238-BBA5-7B7E15866196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F45B3F-5C23-4238-BBA5-7B7E15866196}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
